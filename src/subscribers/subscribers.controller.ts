@@ -6,9 +6,7 @@ import CreateSubscriberDto from './dto/create-subscriber.dto';
 
 @Controller('subscribers')
 export class SubscribersController {
-  constructor(
-    private readonly subscribersService: SubscribersService,
-  ) {}
+  constructor(private readonly subscribersService: SubscribersService) {}
 
   // Message-based communication
   @MessagePattern({ cmd: 'add-message-based-subscriber' })
