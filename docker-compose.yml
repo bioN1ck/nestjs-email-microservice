@@ -1,0 +1,11 @@
+version: "3.8"
+services:
+  postgres:
+    container_name: emails-postgres
+    image: postgres:latest
+    ports:
+      - "5434:5432"
+    volumes:
+      - ./data/postgres:/data/postgres
+    env_file:
+      - docker.env
