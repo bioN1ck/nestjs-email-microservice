@@ -2,6 +2,9 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import * as Joi from 'joi';
 
+import { SubscribersModule } from './subscribers/subscribers.module';
+import { DatabaseModule } from './database/database.module';
+
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -11,8 +14,11 @@ import * as Joi from 'joi';
         POSTGRES_USER: Joi.string().required(),
         POSTGRES_PASSWORD: Joi.string().required(),
         POSTGRES_DB: Joi.string().required(),
+        PORT: Joi.string().required(),
       }),
     }),
+    DatabaseModule,
+    SubscribersModule,
   ],
 })
 export class AppModule {}
